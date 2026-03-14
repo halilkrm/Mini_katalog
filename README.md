@@ -1,65 +1,58 @@
 # Mini Katalog Uygulaması
 
-Bir Flutter eğitimi kapsamında geliştirdiğim basit ürün katalog uygulaması.
+Flutter ile geliştirilen basit bir ürün katalog uygulaması. Ürünleri listeleme, detaylarını görüntüleme ve sepete ekleme özellikleri içerir.
 
-## Ekranlar
+## Ekran Görüntüleri
 
-- Ana Sayfa: Ürünlerin GridView ile listelendiği sayfa, arama ve kategori filtresi var
-- Detay Sayfası: Ürüne tıklayınca açılan detay ekranı
-- Sepet Sayfası: Eklenen ürünlerin görüntülendiği ekran
+Ekran görüntüleri repo ana dizininde `Screenshot_*.png` dosyaları olarak bulunmaktadır.
 
 ## Kullanılan Flutter Sürümü
 
-Flutter 3.41.3 (Dart 3.11.1)
-
-
-## Çalıştırma Adımları
-
-1. Flutter SDK kurulu olmalı
-2. Projeyi klonla ya da indir
-3. Terminalde proje klasörüne gir
-4. Bağımlılıkları yükle:
-
-```bash
-flutter pub get
-```
-
-5. Emulator veya cihaz bağlı olmalı:
-
-```bash
-flutter devices
-```
-
-6. Uygulamayı çalıştır:
-
-```bash
-flutter run
-```
+- Flutter 3.41.3 (Dart 3.11.1)
 
 ## Özellikler
 
 - Ürün listeleme (GridView)
-- Arama fonksiyonu
 - Kategori filtreleme
+- Ürün arama
 - Ürün detay sayfası (Navigator ile sayfa geçişi)
 - Sepete ekleme / çıkarma (state güncelleme)
 - Sepet toplam hesaplama
 
-## Proje Yapısı
+## Veri Kaynağı
 
+Ürün verileri **DummyJSON API**'sından canlı olarak çekilmektedir:
+- https://dummyjson.com/products
+
+`fake_data.dart` dosyası yalnızca API'ya erişilemediği durumlarda devreye giren yedek veridir, aktif olarak kullanılmamaktadır.
+
+## Proje Yapısı
 ```
 lib/
   main.dart
   models/
-    product.dart       # Ürün veri modeli (fromJson/toJson)
-    fake_data.dart     # JSON simülasyon verisi
-    cart_provider.dart # Sepet yönetimi
+    product.dart        # Ürün veri modeli (fromJson/toJson)
+    fake_data.dart      # Yedek veri (API erişilemezse kullanılır)
+    cart_provider.dart  # Sepet yönetimi
   screens/
-    home_screen.dart   # Ana sayfa
-    detail_screen.dart # Ürün detay sayfası
-    cart_screen.dart   # Sepet sayfası
+    home_screen.dart    # Ana sayfa
+    detail_screen.dart  # Ürün detay sayfası
+    cart_screen.dart    # Sepet sayfası
 ```
 
-## Notlar
-Ürün verileri DummyJSON API'sından çekilmektedir.
-API: https://dummyjson.com/products
+## Çalıştırma Adımları
+
+1. Flutter SDK kurulu olmalı
+2. Projeyi klonla:
+```bash
+git clone https://github.com/halilkrm/Mini_katalog.git
+cd Mini_katalog
+```
+3. Bağımlılıkları yükle:
+```bash
+flutter pub get
+```
+4. Uygulamayı çalıştır:
+```bash
+flutter run
+```
